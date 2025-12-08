@@ -3,8 +3,11 @@ package com.example.tennismobileapp.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import com.example.tennismobileapp.ui.court.detail.CourtDetailRoute
 import com.example.tennismobileapp.ui.court.list.CourtListScreen
 
 @Composable
@@ -26,12 +29,19 @@ fun AppNavGraph(
         }
 
         // 테니스장 상세 화면
-//        composable(NavigationRoute.CourtDetail.route) { backStackEntry ->
-//            val courtId = backStackEntry.arguments?.getLong("courtId") ?: 1L
-//            CourtDetailRoute(
-//                courtId = courtId,
-//                onBackClick = { navController.popBackStack() }
-//            )
-//        }
+        composable(
+            route = NavigationRoute.CourtDetail.route,
+            arguments = listOf(
+                navArgument("courtId") {
+                    type = NavType.LongType
+                }
+            )
+        ) { backStackEntry ->
+            val courtId = backStackEntry.arguments?.getLong("courtId") ?: 1L
+            CourtDetailRoute(
+                courtId = courtId,
+                onBackClick = { navController.popBackStack() }
+            )
+        }
     }
 }

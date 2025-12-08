@@ -58,9 +58,6 @@ fun CourtItemCard(
 
         }
     }
-
-
-
 }
 
 

@@ -7,7 +7,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TennisCourtApiService {
-    @GET("api/v1/courts/{id}")
+    @GET("api/v1/tennis-courts/{id}")
     suspend fun getCourt(
         @Path("id") courtId: Long
     ) : TennisCourtDto
