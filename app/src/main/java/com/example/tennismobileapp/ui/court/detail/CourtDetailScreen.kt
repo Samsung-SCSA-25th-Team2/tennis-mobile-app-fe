@@ -22,6 +22,12 @@ import androidx.compose.ui.unit.dp
 import com.example.tennismobileapp.core.ui.AppTypography
 import com.example.tennismobileapp.ui.court.component.CourtThumbnail
 
+
+/**
+ * `CourtDetailScreen`
+ * 인자로 uiState와 콜백함수만 받아서
+ * UI만 그리는 것에 집중
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CourtDetailScreen(
@@ -72,7 +78,7 @@ fun CourtDetailScreen(
                             .padding(16.dp)
                     ) {
                         CourtThumbnail(
-                            thumbnailUrl = uiState.thumbnail.orEmpty(),
+                            thumbnailUrl = uiState.thumbnail.orEmpty(), // null-safety
                             contentDescription = uiState.courtName
                         )
 

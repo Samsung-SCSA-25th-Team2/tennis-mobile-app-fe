@@ -23,6 +23,7 @@ fun CourtListScreen(
     onCourtClick: (Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: CourtListViewModel = viewModel()
+    // 여기서 viewModel의 init()이 호출되어 코루틴 실행
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -60,6 +61,8 @@ fun CourtListScreen(
                     contentPadding = PaddingValues(16.dp)
                 ) {
                     items(uiState.courtList) { court ->
+                        // items로 하나씩 렌더링
+
                         CourtItemCard(
                             court = court,
                             onClick = onCourtClick
